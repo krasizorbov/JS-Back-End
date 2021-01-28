@@ -11,8 +11,6 @@ require('./config/routes')(app);
 
 
 
-app.get('/', (req, res) => {
-    res.render('home', {layout: false});
-})
+
 
 app.listen(config.port, console.log(`Listening on port ${config.port}...`));
