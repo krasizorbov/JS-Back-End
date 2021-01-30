@@ -102,3 +102,4 @@ dist
 
 # TernJS port file
 .tern-port
+/04. Express JS And Templating - Workshop/Cubicle-Workshop-Part-1-Resources/products.json
