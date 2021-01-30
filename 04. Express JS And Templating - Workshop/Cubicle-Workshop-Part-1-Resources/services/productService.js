@@ -11,7 +11,7 @@ function create(data){
     let cube = new Cube(uniqid(), data.name, data.description, data.imageUrl, data.difficultyLevel);
 
     products.push(cube);
-    
+
     // Use the "path" library to configure the path
     fs.writeFile('products.json', JSON.stringify(products), (err) => {
         if (err) {
@@ -21,4 +21,4 @@ function create(data){
     });
 }
 
-module.exports = {create};
+module.exports = {create, getAll};
