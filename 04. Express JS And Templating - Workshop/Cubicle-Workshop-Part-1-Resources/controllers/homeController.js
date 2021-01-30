@@ -1,4 +1,5 @@
 const Router = require('express').Router;
+const productService = require('../services/productService');
 const router = Router();
 
 router.get('/', (req, res) => {
@@ -10,8 +11,10 @@ router.get('/create', (req, res) => {
     });
 
 router.post('/create', (req, res) => {
-    console.log(req.body);
-     res.send('created')
+    // Validate req.body here or use middleware!!!
+    let data = req.body;
+    productService.create(data);
+     res.redirect('/home');
 });
 
 router.get('/details/:productId', (req, res) => {
