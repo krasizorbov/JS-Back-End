@@ -15,16 +15,20 @@ async function create(data){
     let cube = new Cube(uniqid(), data.name, data.description, data.imageUrl, data.difficultyLevel);
     products.push(cube);
     // Use the "path" library to configure the path with "path.join" or "path.resolve"
+    // With async await
     try {
         await fs.writeFile('products.json', JSON.stringify(products));
     } catch (error) {
         console.log(error);
     }
-    // await fs.writeFile('products.json', JSON.stringify(products), (err) => {
-    //     if (err) {
-    //         console.log(err);
-    //         return;
-    //     }
+
+    // With a Promise
+    // fs.writeFile('products.json', JSON.stringify(products))
+    // .then(() => {
+    //     console.log('JSON saved');
+    // })
+    // .catch(er => {
+    //     console.log(er);
     // });
 }
 
