@@ -25,7 +25,8 @@ router.post('/create', (req, res, next) => {
 });
 
 router.get('/details/:productId', (req, res) => {
-    res.render('details', {title: 'Product Details'});
+    const product = productService.getById(req.params.productId);
+    res.render('details', {title: 'Product Details', product});
 });
 
 module.exports = router;

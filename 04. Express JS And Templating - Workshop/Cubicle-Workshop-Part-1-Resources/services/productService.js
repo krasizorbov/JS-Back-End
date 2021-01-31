@@ -7,6 +7,10 @@ function getAll(){
     return products;
 }
 
+function getById(id){
+    return products.find(x => x.id === id);
+}
+
 function create(data){
     let cube = new Cube(uniqid(), data.name, data.description, data.imageUrl, data.difficultyLevel);
 
@@ -21,4 +25,4 @@ function create(data){
     });
 }
 
-module.exports = {create, getAll};
+module.exports = {create, getAll, getById};
