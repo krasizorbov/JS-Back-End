@@ -11,13 +11,13 @@ function getById(id){
     return products.find(x => x.id === id);
 }
 
-function create(data){
+async function create(data){
     let cube = new Cube(uniqid(), data.name, data.description, data.imageUrl, data.difficultyLevel);
 
     products.push(cube);
 
     // Use the "path" library to configure the path with "path.join" or "path.resolve"
-    fs.writeFile('products.json', JSON.stringify(products), (err) => {
+    await fs.writeFile('products.json', JSON.stringify(products), (err) => {
         if (err) {
             console.log(err);
             return;
