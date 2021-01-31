@@ -12,13 +12,11 @@ router.get('/create', (req, res) => {
     });
 
 router.post('/create', (req, res, next) => {
-    const {id, name, description, imageUrl, difficultyLevel} = req.body;
-        
+    const {id, name, description, imageUrl, difficultyLevel} = req.body;   
     if (id === "" || name === "" || description === "" || imageUrl === "" || difficultyLevel === "") {
         res.redirect('/home/create');
     } else {
-        let data = req.body;
-        productService.create(data);
+        productService.create(req.body);
         res.redirect('/home');
     }
     next();

@@ -16,7 +16,7 @@ function create(data){
 
     products.push(cube);
 
-    // Use the "path" library to configure the path
+    // Use the "path" library to configure the path with "path.join" or "path.resolve"
     fs.writeFile('products.json', JSON.stringify(products), (err) => {
         if (err) {
             console.log(err);
