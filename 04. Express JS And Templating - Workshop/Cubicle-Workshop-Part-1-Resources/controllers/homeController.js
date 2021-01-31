@@ -11,15 +11,21 @@ router.get('/create', (req, res) => {
         res.render('create', {title: 'Create'});
     });
 
-router.post('/create', (req, res) => {
-    // Validate req.body here or use middleware!!!
-    let data = req.body;
-    productService.create(data);
-     res.redirect('/home');
+router.post('/create', (req, res, next) => {
+    const {id, name, description, imageUrl, difficultyLevel} = req.body;
+        
+    if (id === "" || name === "" || description === "" || imageUrl === "" || difficultyLevel === "") {
+        res.redirect('/home/create');
+    } else {
+        let data = req.body;
+        productService.create(data);
+        res.redirect('/home');
+    }
+    next();
 });
 
 router.get('/details/:productId', (req, res) => {
     res.render('details', {title: 'Product Details'});
-})
+});
 
 module.exports = router;
