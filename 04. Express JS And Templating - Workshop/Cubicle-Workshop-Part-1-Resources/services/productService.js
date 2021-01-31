@@ -3,7 +3,13 @@ const uniqid = require('uniqid');
 const fs = require('fs').promises;
 let products = require('../products.json');
 
-function getAll(){
+function getAll(query){
+    let result = products;
+    console.log(query.search);
+    if (query.search) {
+        result = result.filter(x => x.name.toLocaleLowerCase().includes(query.search.toLocaleLowerCase()));
+        return result;
+    }
     return products;
 }
 
@@ -22,8 +28,10 @@ async function create(data){
         console.log(error);
     }
 
-    // With a Promise
-    // fs.writeFile('products.json', JSON.stringify(products))
+    // With a Promise. Return the promise and use "then()"" and "catch()"" in the homeController
+    // return fs.writeFile('products.json', JSON.stringify(products))
+
+    // In the homeController
     // .then(() => {
     //     console.log('JSON saved');
     // })
