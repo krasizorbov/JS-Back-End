@@ -5,12 +5,16 @@ let products = require('../products.json');
 
 function getAll(query){
     let result = products;
-    console.log(query.search);
     if (query.search) {
         result = result.filter(x => x.name.toLocaleLowerCase().includes(query.search.toLocaleLowerCase()));
-        return result;
     }
-    return products;
+    if (query.from) {
+        result = result.filter(x => Number(x.level) >= query.from);
+    }
+    if (query.to) {
+        result = result.filter(x => Number(x.level) <= query.to);
+    }
+    return result;
 }
 
 function getById(id){
