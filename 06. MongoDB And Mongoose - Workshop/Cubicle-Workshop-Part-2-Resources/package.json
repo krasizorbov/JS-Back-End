@@ -1,0 +1,29 @@
+{
+  "name": "cubicle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "SET NODE_ENV=development && nodemon ./index.js",
+    "prod": "SET NODE_ENV=production && node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "mongoose": "^5.11.14"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

@@ -24,6 +24,7 @@ function getById(id){
 async function create(data){
     let cube = new Cube(uniqid(), data.name, data.description, data.imageUrl, data.difficultyLevel);
     products.push(cube);
+
     // Use the "path" library to configure the path with "path.join" or "path.resolve"
     // With async await
     try {
