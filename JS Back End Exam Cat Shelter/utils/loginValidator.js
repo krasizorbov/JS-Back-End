@@ -8,6 +8,16 @@ module.exports = [
         return Promise.reject('E-mail does not exist!');
       }
     });
-      }),
-  body('password', 'Password must be at least 6 characters long').isLength({min: 6})
+  }),
+  body('password', 'Password must be at least 6 characters long').isLength({min: 6}).custom(passwordCheck)
 ]
+
+function passwordCheck(password, { req }){
+  return User.findOne({email: req.body.email}).then(user => {
+    return user.comparePasswords(password).then(result => {
+      if (!result) {
+        return Promise.reject('Invalid password!');
+      }
+    })
+  }) 
+}

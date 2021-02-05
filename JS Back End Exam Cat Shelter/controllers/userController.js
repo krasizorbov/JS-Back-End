@@ -50,7 +50,6 @@ module.exports = {
         },
 
         login(req, res, next) {
-
             const validForm = formValidator(req);
 
             if (!validForm.isOk) {
