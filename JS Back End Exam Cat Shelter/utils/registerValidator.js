@@ -2,8 +2,8 @@ const { body } = require('express-validator');
 const { User } = require('../models');
 
 module.exports = [
-    body('email', "The provided email is not valid!").isEmail().custom(value => {
-        return User.findOne({email: value}).then(user => {
+    body('email', "The provided email is not valid!").isEmail().custom(email => {
+        return User.findOne({email: email}).then(user => {
           if (user) {
             return Promise.reject('E-mail already exist!');
           }
