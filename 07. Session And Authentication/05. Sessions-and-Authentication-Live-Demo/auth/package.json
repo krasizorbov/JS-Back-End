@@ -1,0 +1,22 @@
+{
+  "name": "authentication",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "debug": "nodemon --inspect-brk ./bin/www"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.3",
+    "crypto-js": "^3.1.9-1",
+    "debug": "~2.6.9",
+    "email-validator": "^2.0.4",
+    "express": "~4.16.0",
+    "hbs": "~4.0.1",
+    "http-errors": "~1.6.2",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.7",
+    "morgan": "~1.9.0"
+  }
+}
