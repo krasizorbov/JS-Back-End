@@ -36,13 +36,10 @@ module.exports = {
 
             User
                 .findOne({ email })
-                .then((user) => {
-                    if (user) {
-                        throw new Error('The given email is already in use...');
-                    }
+                .then(() => {
                     return User.create({ email, fullName, password })
                 })
-                .then((createdUser) => {
+                .then(() => {
                     res.redirect('/user/login');
                 })
                 .catch((e) => {
