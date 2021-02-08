@@ -47,13 +47,17 @@ router.post('/:productId/attach', isAuthenticated, (req, res) => {
 router.get('/:productId/edit', isAuthenticated, (req, res) => {
     productService.getOne(req.params.productId)
         .then(product => {
-            res.render('editCube', product);
+            if (product.creator == req.user._id) {
+                res.render('editCube', product);
+            } else {
+                res.redirect(`/products/details/${req.params.productId}`);
+            }
         });
 });
 
 router.post('/:productId/edit', isAuthenticated, validateProduct, (req, res) => {
     productService.updateOne(req.params.productId, req.body)
-        .then(response => {
+        .then(() => {
             res.redirect(`/products/details/${req.params.productId}`);
         });
 });
@@ -61,24 +65,20 @@ router.post('/:productId/edit', isAuthenticated, validateProduct, (req, res) => 
 router.get('/:productId/delete', isAuthenticated, (req, res) => {
     productService.getOne(req.params.productId)
         .then(product => {
-            if (req.user._id != product.creator) {
-                res.redirect('/products')
-            } else {
+            if (product.creator == req.user._id) {
                 res.render('deleteCube', product);
+            } else {
+                res.redirect(`/products/details/${req.params.productId}`);
             }
         });
 });
 
 router.post('/:productId/delete', isAuthenticated, (req, res) => {
     productService.getOne(req.params.productId)
-        .then(product => {
-            if (product._id !== req.user._id) {
-                return res.redirect('/products');
-            }
-
+        .then(() => {
             return productService.deleteOne(req.params.productId)
         })
-        .then(response => res.redirect('/products'));
+        .then(() => res.redirect('/products'));
 });
 
 module.exports = router;

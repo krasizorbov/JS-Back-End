@@ -194,6 +194,7 @@ input[type=submit] {
     display: inline-block;
     font-size: 18px;
     width: 50%;
+    position: relative;
     margin: 5px 5px 5px 25%;
     color: white;
     text-transform: uppercase;
@@ -217,13 +218,13 @@ span.error {
     animation-delay: 2s;
     background: #EF5542;
     color: white;
-    padding: 10px;
+    padding: 8 px;
     text-align: center;
     text-decoration: none;
     border-radius: 20px;
     font-weight: normal;
     position: relative;
-    float: right;
+    float: left;
     margin-top: 20px;
     overflow: hidden;
     display: block;

@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ivailopapazov/cubicle.git"
+    "url": ""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ivailopapazov/cubicle/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/ivailopapazov/cubicle#readme",
+  "homepage": "",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
