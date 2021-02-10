@@ -1,0 +1,62 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand" href="#">Tutorials</a>
+
+        <ul class="navbar-nav ml-auto">
+            {{#if isLoggedIn}}
+            <li class="nav-item">
+                <a class="nav-link" href="#">Welcome, {{username}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/logout">Logout</a>
+            </li>
+            {{else}}
+            <li class="nav-item">
+                <a class="nav-link" href="/user/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/register">Register</a>
+            </li>
+            {{/if}}
+        </ul>
+    </nav>
+
+    {{#if isLoggedIn}}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Tutorials</h1>
+            <p class="lead">Start Self-Learning Today: Be the best Developer in the company</p>
+        </div>
+    </div>
+
+    {{else}}
+    <div>
+
+        <h1 class="text-center">Top Courses</h1>
+        <div class="container mt-3">
+
+            <div class="row d-flex justify-content-center">
+
+                <div class="card-deck">
+
+                    {{#if courses}}
+                    <div class="card mb-4">
+                        <img class="card-img-top"
+                            src="https://www.freecodecamp.org/news/content/images/size/w2000/2020/03/gpython.jpg"
+                            alt="Card image cap" width="400">
+                        <div class="card-body">
+                            <h4 class="card-title">Python</h4>
+                            <small class="float-right">Enrolled: 8</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            {{else}}
+            <h4 class="text-center">No courses...</h4>
+            {{/if}}
+        </div>
+    </div>
+    {{/if}}
+</header>
