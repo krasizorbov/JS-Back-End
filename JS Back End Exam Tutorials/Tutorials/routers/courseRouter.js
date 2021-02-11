@@ -7,11 +7,11 @@ module.exports = (router) => {
     router.get('/enroll/:courseId', courseController.get.enroll);
     
     router.get('/edit/:courseId', courseController.get.edit);
-    // router.get('/delete/:shoeId', shoeController.get.delete);
+    router.get('/delete/:courseId', courseController.get.delete);
 
     router.post('/create', courseController.post.create);
     
-    // router.post('/edit/:shoeId', shoeController.post.edit);
+    router.post('/edit/:courseId', courseController.post.edit);
 
     return router;
 };

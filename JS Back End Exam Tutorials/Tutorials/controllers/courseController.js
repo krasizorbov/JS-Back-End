@@ -48,14 +48,13 @@ module.exports = {
                 });
         },
 
-        // delete(req, res, next) {
-
-        //     Shoe
-        //         .deleteOne({ _id: req.params.shoeId })
-        //         .then((result) => {
-        //             res.redirect('/shoes/all');
-        //         })
-        // }
+        delete(req, res, next) {
+            Course
+                .deleteOne({ _id: req.params.courseId })
+                .then(() => {
+                    res.redirect('/home');
+                })
+        }
 
     },
 
@@ -69,19 +68,17 @@ module.exports = {
                 });
         },
 
-        // edit(req, res, next) {
+        edit(req, res, next) {
 
-        //     const { shoeId } = req.params;
+            const { courseId } = req.params;
 
-        //     Shoe
-        //         .updateOne(
-        //             { _id: shoeId },
-        //             { $set: { ...req.body } }
-        //         ).then((updatedShoeOffer) => {
-        //             res.redirect(`/shoes/details/${shoeId}`)
-        //         })
-        // }
-
-        
+            Course
+                .updateOne(
+                    { _id: courseId },
+                    { $set: { ...req.body } }
+                ).then(() => {
+                    res.redirect(`/course/details/${courseId}`)
+                })
+        }
     }
 }

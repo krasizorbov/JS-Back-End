@@ -13,7 +13,7 @@
             <h3 class="my-3">Description</h3>
             <p>{{description}}</p>
             {{#if isCreator}}
-            <a class="btn btn-danger" href="/">Delete</a>
+            <a class="btn btn-danger" href="/course/delete/{{_id}}">Delete</a>
             <a class="btn btn-warning" href="/course/edit/{{_id}}">Edit</a>
             {{else}}
             {{#if isEnrolled}}
