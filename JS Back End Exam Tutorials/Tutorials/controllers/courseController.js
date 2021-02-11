@@ -35,12 +35,11 @@ module.exports = {
                     { $push: { usersEnrolled: req.user._id } }
                 ).then(() => {
                     res.locals.isEnrolled = true;
-                    res.redirect('back');
+                    res.redirect(`/course/details/${courseId}`);
                 })
         },
 
         edit(req, res, next) {
-
             Course
                 .findOne({ _id: req.params.courseId })
                 .then((course) => {
@@ -60,7 +59,6 @@ module.exports = {
 
     post: {
         create(req, res, next) {
-            
             Course
                 .create({ ...req.body, creator: req.user._id })
                 .then(() => {
@@ -69,9 +67,7 @@ module.exports = {
         },
 
         edit(req, res, next) {
-
             const { courseId } = req.params;
-
             Course
                 .updateOne(
                     { _id: courseId },
@@ -79,6 +75,6 @@ module.exports = {
                 ).then(() => {
                     res.redirect(`/course/details/${courseId}`)
                 })
-        }
+        },
     }
 }
