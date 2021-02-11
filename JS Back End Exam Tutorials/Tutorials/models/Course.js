@@ -31,7 +31,11 @@ module.exports = (mongoose) => {
                 type: ObjectId,
                 ref: "User"
             }
-        ]
+        ],
+        creator: {
+            type: ObjectId, 
+            ref: "User"
+        }
     });
 
     return Model('Course', courseSchema);
