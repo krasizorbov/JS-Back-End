@@ -37,16 +37,16 @@ module.exports = {
                     res.locals.isEnrolled = true;
                     res.redirect('back');
                 })
-        }
+        },
 
-        // edit(req, res, next) {
+        edit(req, res, next) {
 
-        //     Shoe
-        //         .findOne({ _id: req.params.shoeId })
-        //         .then((shoe) => {
-        //             res.render('./shoes/edit.hbs', shoe);
-        //         });
-        // },
+            Course
+                .findOne({ _id: req.params.courseId })
+                .then((course) => {
+                    res.render('./course/edit.hbs', course);
+                });
+        },
 
         // delete(req, res, next) {
 

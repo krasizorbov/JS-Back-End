@@ -14,7 +14,7 @@
             <p>{{description}}</p>
             {{#if isCreator}}
             <a class="btn btn-danger" href="/">Delete</a>
-            <a class="btn btn-warning" href="/">Edit</a>
+            <a class="btn btn-warning" href="/course/edit/{{_id}}">Edit</a>
             {{else}}
             {{#if isEnrolled}}
             <span class="enrolled-span">You are already enrolled</span>
