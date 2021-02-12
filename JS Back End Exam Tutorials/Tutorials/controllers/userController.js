@@ -46,13 +46,13 @@ module.exports = {
         },
 
         login(req, res, next) {
-            //const validForm = formValidator(req);
+            const validForm = formValidator(req);
 
-            // if (!validForm.isOk) {
-            //     console.log("not ok");
-            //     res.render('./user/login.hbs', validForm.options);
-            //     return;
-            // }
+            if (!validForm.isOk) {
+                console.log("not ok");
+                res.render('./user/login.hbs', validForm.options);
+                return;
+            }
 
             const { username, password } = {...req.body};
             console.log(username);

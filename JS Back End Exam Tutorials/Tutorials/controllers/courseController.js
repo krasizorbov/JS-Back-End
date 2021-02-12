@@ -32,7 +32,7 @@ module.exports = {
             Course
                 .updateOne(
                     { _id: courseId },
-                    { $push: { usersEnrolled: req.user._id } }
+                    { $push: { usersEnrolled: req.user._id }, $inc: { count: 1 } },
                 ).then(() => {
                     res.locals.isEnrolled = true;
                     res.redirect(`/course/details/${courseId}`);
@@ -60,7 +60,7 @@ module.exports = {
     post: {
         create(req, res, next) {
             Course
-                .create({ ...req.body, creator: req.user._id })
+                .create({ ...req.body, creator: req.user._id, count: 0 })
                 .then(() => {
                     res.redirect('/home');
                 });

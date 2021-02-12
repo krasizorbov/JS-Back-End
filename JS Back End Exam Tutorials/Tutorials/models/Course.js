@@ -32,6 +32,10 @@ module.exports = (mongoose) => {
                 ref: "User"
             }
         ],
+        count: {
+            type: Number,
+            required: true
+        },
         creator: {
             type: ObjectId, 
             ref: "User"

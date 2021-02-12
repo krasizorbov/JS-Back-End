@@ -21,6 +21,12 @@
         </ul>
     </nav>
 
+    {{#if message}}
+    <section class="notifications">
+        <p class="notification-message">{{message}}</p>
+    </section>
+    {{/if}}
+
     {{#if isLoggedIn}}
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
@@ -28,34 +34,25 @@
             <p class="lead">Start Self-Learning Today: Be the best Developer in the company</p>
         </div>
     </div>
-
     {{else}}
     <div>
-
         <h1 class="text-center">Top Courses</h1>
         <div class="container mt-3">
-
             <div class="row d-flex justify-content-center">
-
                 <div class="card-deck">
-
-                    {{#if courses}}
+                    {{#each courses}}
                     <div class="card mb-4">
-                        <img class="card-img-top"
-                            src="https://www.freecodecamp.org/news/content/images/size/w2000/2020/03/gpython.jpg"
-                            alt="Card image cap" width="400">
+                        <img class="card-img-top" src="{{imageUrl}}" alt="Card image cap" width="400">
                         <div class="card-body">
-                            <h4 class="card-title">Python</h4>
-                            <small class="float-right">Enrolled: 8</small>
+                            <h4 class="card-title">{{title}}</h4>
+                            <small class="float-right">Enrolled: {{usersEnrolled.length}}</small>
                         </div>
                     </div>
-
+                    {{else}}
                 </div>
-
             </div>
-            {{else}}
             <h4 class="text-center">No courses...</h4>
-            {{/if}}
+            {{/each}}
         </div>
     </div>
     {{/if}}
