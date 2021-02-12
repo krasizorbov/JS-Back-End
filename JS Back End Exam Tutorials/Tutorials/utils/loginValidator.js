@@ -9,8 +9,8 @@ module.exports = [
       }
     });
   }),
-  body('password').isLength({min: 5})
-  .withMessage('Password must be at least 5 characters long')
+  body('password').isLength({min: 5}).withMessage('Password must be at least 5 characters long')
+  .matches(/\d/).withMessage('Password must contain a number!')
   .custom(passwordCheck)
 ]
 
