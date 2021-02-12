@@ -20,16 +20,12 @@ module.exports = {
 
     post: {
         register(req, res, next) {
-
             const validForm = formValidator(req);
-
             if (!validForm.isOk) {
                 res.render('./user/register.hbs', validForm.options);
                 return;
             }
-
             const { username, password } = { ...req.body };
-
             User
                 .findOne({ username })
                 .then(() => {
@@ -47,16 +43,11 @@ module.exports = {
 
         login(req, res, next) {
             const validForm = formValidator(req);
-
             if (!validForm.isOk) {
-                console.log("not ok");
                 res.render('./user/login.hbs', validForm.options);
                 return;
             }
-
             const { username, password } = {...req.body};
-            console.log(username);
-
             User
                 .findOne({ username })
                 .then((user) => {
@@ -69,9 +60,7 @@ module.exports = {
                     if (!isPasswordMatch) {
                         throw new Error('Wrong password!');
                     }
-
                     const token = jwt.createToken(user._id);
-
                     res
                         .status(200)
                         .cookie(cookie, token, { maxAge: 86400000 })
