@@ -5,11 +5,13 @@ module.exports = [
   body('username').custom(value => {
     return User.findOne({username: value}).then(user => {
       if (!user) {
-        return Promise.reject('Username does not exist!');
+        return Promise.reject('Username is invalid!');
       }
     });
   }),
-  body('password', 'Password must be at least 6 characters long').isLength({min: 6}).custom(passwordCheck)
+  body('password').isLength({min: 5})
+  .withMessage('Password must be at least 5 characters long')
+  .custom(passwordCheck)
 ]
 
 function passwordCheck(password, { req }){
