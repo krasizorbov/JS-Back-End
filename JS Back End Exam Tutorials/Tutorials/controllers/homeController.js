@@ -2,8 +2,9 @@ const { Course } = require('../models');
 
 module.exports = {
     get: {
-        homeAuth(req, res, next) {
-            Course
+        home(req, res, next) {
+            if (res.locals.isLoggedIn === true) {
+                Course
                 .find({})
                 .sort({createdAt: 'ascending'})
                 .lean()
@@ -13,10 +14,8 @@ module.exports = {
                     });
                 })
                 .catch((e) => console.log(e));
-        },
-
-        homeGuest(req, res, next) {
-            Course
+            } else {
+                Course
                 .find({})
                 .sort({count: 'descending'})
                 .limit(3)
@@ -27,6 +26,7 @@ module.exports = {
                     });
                 })
                 .catch((e) => console.log(e));
+            } 
         },
     }
 };
