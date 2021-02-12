@@ -16,7 +16,7 @@ module.exports = {
                     }
                     if (course.usersEnrolled.length > 0) {
                         const id = req.user._id;
-                        for (let i = 1; i < course.usersEnrolled.length; i++) {
+                        for (let i = 0; i < course.usersEnrolled.length; i++) {
                             if (course.usersEnrolled[i].toString() == id.toString()) {
                                 res.locals.isEnrolled = true;
                                 break;
