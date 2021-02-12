@@ -18,4 +18,5 @@ module.exports = (express, app) => {
         extname: 'hbs'
     }));
     app.set('viewengine', 'hbs');
+
 };
