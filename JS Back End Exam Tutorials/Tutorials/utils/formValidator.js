@@ -4,7 +4,6 @@ const {validationResult} = require('express-validator');
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        console.log("error");
         return {
             options: {
                 ...req.body,
