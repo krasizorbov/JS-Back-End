@@ -4,11 +4,10 @@ const {validationResult} = require('express-validator');
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
+        console.log("error");
         return {
             options: {
-                oldInput: {
-                    ...req.body
-                },
+                ...req.body,
                 message: `${errors.array()[0].msg}`
             },
             isOk: false

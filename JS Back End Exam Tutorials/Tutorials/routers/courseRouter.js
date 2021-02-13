@@ -11,7 +11,7 @@ module.exports = (router) => {
     router.get('/delete/:courseId', isAuthenticated, courseController.get.delete);
 
     router.post('/create', isAuthenticated, createValidator, courseController.post.create);
-    router.post('/edit/:courseId', isAuthenticated, courseController.post.edit);
+    router.post('/edit/:courseId', isAuthenticated, createValidator, courseController.post.edit);
 
     return router;
 };
