@@ -2,6 +2,7 @@ const jwt = require('./jwt');
 const auth = require('./auth');
 const registerValidator = require('./registerValidator');
 const loginValidator = require('./loginValidator');
+const createValidator = require('./createValidator');
 const formValidator = require('./formValidator');
 
 module.exports = {
@@ -9,5 +10,6 @@ module.exports = {
     auth,
     registerValidator,
     formValidator,
-    loginValidator
+    loginValidator,
+    createValidator
 };

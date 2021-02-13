@@ -1,4 +1,5 @@
 const { Course } = require('../models');
+const { formValidator } = require('../utils');
 
 module.exports = {
     get: {
@@ -59,6 +60,11 @@ module.exports = {
 
     post: {
         create(req, res, next) {
+            const validForm = formValidator(req);
+            if (!validForm.isOk) {
+                res.render('./course/create.hbs', validForm.options);
+                return;
+            }
             Course
                 .create({ ...req.body, creator: req.user._id, count: 0 })
                 .then(() => {
