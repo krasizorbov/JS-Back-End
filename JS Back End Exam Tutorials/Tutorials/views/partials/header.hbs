@@ -1,11 +1,11 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <a class="navbar-brand" href="#">Tutorials</a>
+        <a class="navbar-brand" href="/home">Tutorials</a>
 
         <ul class="navbar-nav ml-auto">
             {{#if isLoggedIn}}
             <li class="nav-item">
-                <a class="nav-link" href="#">Welcome, {{username}}</a>
+                <a class="nav-link" href="/home">Welcome, {{username}}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/user/logout">Logout</a>

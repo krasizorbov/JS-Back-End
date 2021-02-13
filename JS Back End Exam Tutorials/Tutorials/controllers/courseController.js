@@ -76,5 +76,17 @@ module.exports = {
                     res.redirect(`/course/details/${courseId}`)
                 })
         },
+
+        enroll(req, res, next) {
+            const { courseId } = req.params;
+            Course
+                .updateOne(
+                    { _id: courseId },
+                    { $push: { usersEnrolled: req.user._id }, $inc: { count: 1 } },
+                ).then(() => {
+                    res.locals.isEnrolled = true;
+                    res.redirect(`/course/details/${courseId}`);
+                })
+        },
     }
 }

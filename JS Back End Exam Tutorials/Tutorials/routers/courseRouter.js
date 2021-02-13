@@ -5,7 +5,7 @@ module.exports = (router) => {
 
     router.get('/create', isAuthenticated, courseController.get.create);
     router.get('/details/:courseId', isAuthenticated, courseController.get.details);
-    router.get('/enroll/:courseId', isAuthenticated, courseController.get.enroll);
+    router.get('/enroll/:courseId', isAuthenticated, courseController.post.enroll);
     router.get('/edit/:courseId', isAuthenticated, courseController.get.edit);
     router.get('/delete/:courseId', isAuthenticated, courseController.get.delete);
 
