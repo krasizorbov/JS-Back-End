@@ -28,18 +28,6 @@ module.exports = {
                 })
         },
 
-        enroll(req, res, next) {
-            const { courseId } = req.params;
-            Course
-                .updateOne(
-                    { _id: courseId },
-                    { $push: { usersEnrolled: req.user._id }, $inc: { count: 1 } },
-                ).then(() => {
-                    res.locals.isEnrolled = true;
-                    res.redirect(`/course/details/${courseId}`);
-                })
-        },
-
         edit(req, res, next) {
             Course
                 .findOne({ _id: req.params.courseId })
@@ -78,7 +66,7 @@ module.exports = {
                 const _id = req.params.courseId;
                 validForm.options._id = _id;
                 res.render(`./course/edit.hbs`, validForm.options);
-                return req.params;
+                return;
             }
             const { courseId } = req.params;
             Course
