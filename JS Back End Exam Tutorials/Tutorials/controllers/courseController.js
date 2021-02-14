@@ -75,8 +75,10 @@ module.exports = {
         edit(req, res, next) {
             const validForm = formValidator(req);
             if (!validForm.isOk) {
-                res.render('./course/edit.hbs', validForm.options);
-                return;
+                const _id = req.params.courseId;
+                validForm.options._id = _id;
+                res.render(`./course/edit.hbs`, validForm.options);
+                return req.params;
             }
             const { courseId } = req.params;
             Course
