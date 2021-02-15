@@ -108,7 +108,7 @@ footer {
 }
 
 .background-img {
-    background: url("../../static/img/hotel.jpg") no-repeat;
+    background: url("hotel.jpg") no-repeat;
     background-size: cover;
     margin: auto;
     min-height: 500px;
