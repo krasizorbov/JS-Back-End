@@ -12,6 +12,7 @@ module.exports = {
             res.render('./user/register.hbs')
         },
         logout(req, res, next) {
+            req.session.destroy();
             res
                 .clearCookie(cookie)
                 .redirect('/home/');
