@@ -1,7 +1,7 @@
 const handlebars = require('express-handlebars');
 const cookieParser = require('cookie-parser');
-const { auth } = require('../utils');
 const session = require('express-session');
+const { auth } = require('../utils');
 
 module.exports = (express, app) => {
     app.use(express.static('public'));
