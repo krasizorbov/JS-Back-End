@@ -63,6 +63,7 @@ module.exports = {
                         throw new Error('Wrong password!');
                     }
                     const token = jwt.createToken(user._id);
+                    req.session.notification = "You are logged-in successfully!";
                     res
                         .status(200)
                         .cookie(cookie, token, { maxAge: 86400000 })
