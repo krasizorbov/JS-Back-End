@@ -19,10 +19,14 @@
     <div>
         {{!-- <div class="notification loadingBox">
             Loading …
-        </div>
-        <div class="notification infoBox">
-            <span>Info</span>
         </div> --}}
+        <div id="span">
+            {{#if notification}}
+            <div class="notification infoBox">
+                <span>{{notification}}</span>
+            </div>
+            {{/if}}
+        </div>
         {{#if message}}
         <div class="notification errorBox">
             <span>{{message}}</span>
@@ -30,3 +34,10 @@
         {{/if}}
     </div>
 </nav>
+
+<script>
+    document.getElementById("span").innerHTML;
+    setTimeout(function () {
+        document.getElementById("span").innerHTML = '';
+    }, 3000);
+</script>

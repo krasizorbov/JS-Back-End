@@ -19,6 +19,13 @@ module.exports = {
                 .sort({freeRooms: 'descending'})
                 .lean()
                 .then((hotels) => {
+                    if (req.session.notification) {
+                        res.render('./home/home.hbs', {
+                            hotels, notification: req.session.notification
+                        });
+                        req.session.notification = undefined;
+                        return;
+                    }
                     res.render('./home/home.hbs', {
                         hotels
                     });

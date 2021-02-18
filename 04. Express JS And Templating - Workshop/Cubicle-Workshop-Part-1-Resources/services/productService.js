@@ -5,6 +5,7 @@ let products = require('../products.json');
 
 function getAll(query){
     let result = products;
+    console.log(query);
     if (query.search) {
         result = result.filter(x => x.name.toLocaleLowerCase().includes(query.search.toLocaleLowerCase()));
     }

@@ -32,6 +32,7 @@ module.exports = {
                     return User.create({ email, username, password })
                 })
                 .then(() => {
+                    req.session.notification = "You are registered successfully!";
                     res.redirect('/home');
                 })
                 .catch((e) => {
