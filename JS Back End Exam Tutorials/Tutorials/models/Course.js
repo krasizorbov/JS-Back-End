@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 module.exports = (mongoose) => {
 
     const { Schema, model: Model } = mongoose;
@@ -22,9 +24,9 @@ module.exports = (mongoose) => {
             required: true,
         },
         createdAt: {
-            type: Date,
+            type: String,
             required: true,
-            default: Date.now()
+            default: formatDate
         },
         usersEnrolled: [
             {
@@ -41,6 +43,11 @@ module.exports = (mongoose) => {
             ref: "User"
         }
     });
+
+    function formatDate() {
+        let newDate = moment(new Date()).format("ddd MMM YYYY, h:mm:ss").slice(0,25);
+        return newDate;
+    }
 
     return Model('Course', courseSchema);
 };
